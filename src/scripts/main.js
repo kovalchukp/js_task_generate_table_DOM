@@ -354,6 +354,35 @@ const people = [
   },
 ];
 
+document.addEventListener('DOMContentLoaded', () => {
+  const table = document.querySelector('table.dashboard');
+
+  for (const person of people) {
+    const row = document.createElement('tr');
+
+    if (person.sex === 'f') {
+      person.sex = 'Female';
+    } else {
+      person.sex = 'Male';
+    }
+
+    row.innerHTML =
+      `
+      <td>${person.name}</td>` +
+      `
+      <td>${person.sex}</td>` +
+      `
+      <td>${person.born}</td>` +
+      `
+      <td>${person.died}</td>` +
+      `
+      <td>${person.died - person.born}</td>` +
+      `
+      <td>${Math.ceil(person.died / 100)}</td>`;
+
+    table.appendChild(row);
+  }
+});
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
