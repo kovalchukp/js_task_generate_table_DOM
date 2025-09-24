@@ -360,17 +360,13 @@ document.addEventListener('DOMContentLoaded', () => {
   for (const person of people) {
     const row = document.createElement('tr');
 
-    if (person.sex === 'f') {
-      person.sex = 'Female';
-    } else {
-      person.sex = 'Male';
-    }
+    const gender = person.sex === 'f' ? 'Female' : 'Male';
 
     row.innerHTML =
       `
       <td>${person.name}</td>` +
       `
-      <td>${person.sex}</td>` +
+      <td>${gender}</td>` +
       `
       <td>${person.born}</td>` +
       `
